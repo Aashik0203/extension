@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartLens Auth</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <div class="auth-container">
+      <!-- Wrapper for auth forms -->
+    <div id="authForms" style="display: none">
+        <div id="loginForm">
+          <h3>Login</h3>
+          <input type="text" id="loginEmail" placeholder="Email" />
+          <input type="password" id="loginPassword" placeholder="Password" />
+          <button id="loginBtn">Login</button>
+          <p id="loginStatus" class="status"></p>
+          <button class="toggle-link" id="showRegister">
+            Don't have an account? Register
+          </button>
+        </div>
+
+        <div id="registerForm" class="hidden">
+          <h3>Register</h3>
+          <input type="text" id="registerEmail" placeholder="Email" />
+          <input type="password" id="registerPassword" placeholder="Password" />
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+          />
+          <button id="registerBtn">Register</button>
+          <p id="registerStatus" class="status"></p>
+          <button class="toggle-link" id="showLogin">
+            Already have an account? Login
+          </button>
+        </div>
+      </div>
+
+    <div id="loggedInView" style="display: none" class="logged-in-view">
+        <h3>👋 Welcome Back!</h3>
+        <p>You are already logged in.</p>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </div>
+  </body>
+</html>

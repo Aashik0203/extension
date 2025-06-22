@@ -1,0 +1,22 @@
+{
+  "name": "Extension 1:0",
+  "description": "Extension 1",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": ["tabs", "storage", "scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentscript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sidebar/sidebar.html", "sidebar/sidebar.js", "sidebar/sidebar.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

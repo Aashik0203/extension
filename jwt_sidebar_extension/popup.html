@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartLens Auth</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .auth-container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        min-width: 250px;
+        max-width: 400px;
+      }
+
+      h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #1d4ed8;
+      }
+
+      .status {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .toggle-link {
+        background: none;
+        color: #2563eb;
+        text-decoration: underline;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .toggle-link:hover {
+        color: #1d4ed8;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .logged-in-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 0;
+      }
+
+      .logged-in-view h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #2563eb;
+      }
+
+      .logged-in-view p {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .logout-btn {
+        padding: 10px 16px;
+        background-color: #ef4444;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.25s ease-in-out;
+      }
+
+      .logout-btn:hover {
+        background-color: #dc2626;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-container">
+      <!-- Wrapper for auth forms -->
+    <div id="authForms" style="display: none">
+        <div id="loginForm">
+          <h3>Login</h3>
+          <input type="text" id="loginEmail" placeholder="Email" />
+          <input type="password" id="loginPassword" placeholder="Password" />
+          <button id="loginBtn">Login</button>
+          <p id="loginStatus" class="status"></p>
+          <button class="toggle-link" id="showRegister">
+            Don't have an account? Register
+          </button>
+        </div>
+
+        <div id="registerForm" class="hidden">
+          <h3>Register</h3>
+          <input type="text" id="registerEmail" placeholder="Email" />
+          <input type="password" id="registerPassword" placeholder="Password" />
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+          />
+          <button id="registerBtn">Register</button>
+          <p id="registerStatus" class="status"></p>
+          <button class="toggle-link" id="showLogin">
+            Already have an account? Login
+          </button>
+        </div>
+      </div>
+
+    <div id="loggedInView" style="display: none" class="logged-in-view">
+        <h3>👋 Welcome Back!</h3>
+        <p>You are already logged in.</p>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
