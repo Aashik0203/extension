@@ -1,72 +1,87 @@
-/* Body baseline */
-body {
+/* Reset & base */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #0f172a;
+  color: #f1f5f9;
   height: 100vh;
   overflow: hidden;
 }
 
-/* Sidebar container */
-#sidebar-container {
+/* Sidebar wrapper */
+#sidebar {
   position: fixed;
   top: 0;
   right: 0;
   width: 300px;
   height: 100vh;
-  background-color: #2c2c2c;
-  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-  z-index: 9998;
-}
-
-/* Sidebar content */
-#sidebar {
-  padding: 20px;
-  height: 100%;
-  overflow-y: auto;
-}
-
-/* Toggle button */
-#toggle-button {
-  position: fixed;
-  top: 50%;
-  right: 300px;
-  transform: translateY(-50%);
+  background: linear-gradient(145deg, #1e293b, #111827);
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.4);
   z-index: 9999;
-  width: 24px;
-  height: 48px;
-  background-color: #444;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  border-left: 1px solid #334155;
+}
+
+/* Toggle button (hamburger) */
+#toggle-btn {
+  align-self: flex-start;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 20px;
   border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
   cursor: pointer;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-weight: bold;
-  transition: right 0.3s ease;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+  margin-bottom: 20px;
 }
 
-/* Hover detection zone */
-#hover-zone {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 100vh;
-  z-index: 9997;
+#toggle-btn:hover {
+  background-color: #2563eb;
 }
 
-/* Collapsed state */
-body.collapsed #sidebar-container {
-  transform: translateX(100%);
+/* Content inside sidebar */
+#sidebar-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-body.collapsed #toggle-button {
-  right: 0;
+#sidebar-content h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #475569;
+  padding-bottom: 8px;
+  color: #60a5fa;
 }
 
-body.collapsed #sidebar {
-  pointer-events: none;
-  opacity: 0;
+#sidebar-content p {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+#logout-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: auto;
+}
+
+#logout-btn:hover {
+  background-color: #dc2626;
 }

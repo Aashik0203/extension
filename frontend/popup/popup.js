@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.storage.local.remove("jwt", () => {
       showAuthForms();
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { type: "HIDE_SIDEBAR" });
+        chrome.tabs.sendMessage(tabs[0].id, { type: "LOGOUT" });
       });
     });
   });
