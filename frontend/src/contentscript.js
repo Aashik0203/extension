@@ -62,3 +62,66 @@ window.addEventListener("message", (event) => {
     chrome.storage.local.remove("jwt", removeSidebar);
   }
 });
+
+
+
+
+// Inject floating button
+const dashboardBtn = document.createElement("div");
+dashboardBtn.id = "dashboard-btn";
+dashboardBtn.innerHTML = "📚";
+document.body.appendChild(dashboardBtn);
+
+// Inject dashboard container
+const dashboardContainer = document.createElement("div");
+dashboardContainer.id = "dashboard-container";
+dashboardContainer.classList.add("hidden");
+dashboardContainer.innerHTML = `
+  <div id="dashboard-header">
+    <h3>🧠 Saved Knowledge</h3>
+    <button id="close-dashboard">✖</button>
+  </div>
+  <div id="dashboard-content">
+    <p>Loading snippets...</p>
+  </div>
+`;
+document.body.appendChild(dashboardContainer);
+
+// Show/hide toggle
+dashboardBtn.addEventListener("click", () => {
+  dashboardContainer.classList.toggle("hidden");
+});
+
+// Close button
+dashboardContainer.querySelector("#close-dashboard").addEventListener("click", () => {
+  dashboardContainer.classList.add("hidden");
+});
+
+// Simulated fetch (replace with real API call)
+const dummySnippets = [
+  { code: "console.log('Hello World')", purpose: "Basic logging", tech: "JS" },
+  { code: "useState()", purpose: "React state hook", tech: "React" }
+];
+
+// Render logic
+function renderSnippets(snippets) {
+  const container = dashboardContainer.querySelector("#dashboard-content");
+  container.innerHTML = "";
+  if (snippets.length === 0) {
+    container.innerHTML = "<p>No snippets yet.</p>";
+    return;
+  }
+  snippets.forEach(({ code, purpose, tech }) => {
+    const snippetDiv = document.createElement("div");
+    snippetDiv.className = "snippet-card";
+    snippetDiv.innerHTML = `
+      <pre><code>${code}</code></pre>
+      <p><strong>Purpose:</strong> ${purpose}</p>
+      <p><strong>Technology:</strong> ${tech}</p>
+    `;
+    container.appendChild(snippetDiv);
+  });
+}
+
+// Initial render (simulate)
+renderSnippets(dummySnippets);

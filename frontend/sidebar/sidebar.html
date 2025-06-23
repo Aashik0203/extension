@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Sidebar</title>
-    <link rel="stylesheet" href="sidebar.css" />
-
+  <link rel="stylesheet" href="sidebar.css" />
 </head>
 <body>
   <div id="sidebar">
@@ -12,9 +11,28 @@
     <div id="sidebar-content">
       <h2>🔒 Secure Panel</h2>
       <p>You are logged in!</p>
+
+      <button id="toggle-knowledge-btn">➕ Add Knowledge</button>
+
+      <div id="add-knowledge-section" class="hidden">
+        <h3>Add Knowledge</h3>
+
+        <label for="snippet">Code Snippet:</label>
+        <textarea id="snippet" rows="5" placeholder="Paste code here..."></textarea>
+
+        <label for="purpose">Purpose:</label>
+        <input type="text" id="purpose" placeholder="What does this code do?" />
+
+        <label for="technology">Technology:</label>
+        <input type="text" id="technology" placeholder="e.g., React, Python, etc." />
+
+        <button id="save-knowledge-btn">Save</button>
+      </div>
+
       <button id="logout-btn">Logout</button>
     </div>
   </div>
+
   <script src="sidebar.js"></script>
 </body>
 </html>

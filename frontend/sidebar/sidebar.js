@@ -13,3 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     parent.postMessage("LOGOUT_FROM_SIDEBAR", "*");
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleKnowledgeBtn = document.getElementById("toggle-knowledge-btn");
+  const knowledgeSection = document.getElementById("add-knowledge-section");
+
+  toggleKnowledgeBtn.addEventListener("click", () => {
+    knowledgeSection.classList.toggle("hidden");
+  });
+});
